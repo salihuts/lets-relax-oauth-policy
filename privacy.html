@@ -8,39 +8,78 @@
   body { font-family: -apple-system, Segoe UI, Arial, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
   h1 { font-size: 1.4em; }
   h2 { font-size: 1.1em; margin-top: 1.5em; }
+  code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px; font-size: 0.95em; }
 </style>
 </head>
 <body>
 <h1>Privacy Policy — Let's Relax YouTube Automation</h1>
-<p>Last updated: 2026-10-24</p>
+<p>Last updated: 2026-10-25</p>
 
-<p>This application is a private, personal-use tool connecting to the
-<strong>Let's Relax</strong> YouTube channel's own account via the YouTube
-Data API v3. It is not a public product and is not distributed to or used
-by anyone other than the channel's own owner/operator.</p>
+<p>Let's Relax YouTube Automation ("this application") is a private, personal-use
+tool built and operated by the owner of the <strong>Let's Relax</strong> YouTube
+channel (<a href="https://www.youtube.com/@Lets-Relax">youtube.com/@Lets-Relax</a>)
+to manage that same channel's own content. It is not a public product, is not
+distributed to any other party, and is not used to access any YouTube
+account other than the owner's own.</p>
 
-<h2>What it does</h2>
-<p>Using OAuth authorization granted directly by the channel owner, this
-tool posts video comments and updates video metadata (title, description,
-tags) on videos belonging to this same YouTube channel, on the owner's
-own behalf.</p>
+<h2>What this application does</h2>
+<p>With OAuth authorization granted directly by the channel owner, this
+application calls the YouTube Data API v3 to:</p>
+<ul>
+  <li>Post comments (e.g. a pinned first comment) on videos uploaded to the
+  Let's Relax channel, on the owner's own behalf.</li>
+  <li>Read and update video metadata (title, description, tags) for videos
+  already owned by the Let's Relax channel.</li>
+</ul>
+<p>All actions are initiated manually by the channel owner — there is no
+automated or scheduled posting without a human triggering the action, and
+every value written to YouTube is reviewed by the owner before it is sent.</p>
 
-<h2>What data it accesses</h2>
-<p>Only data belonging to the authorizing YouTube channel itself:
-video details, comment threads, and channel information accessible
-through the scopes the owner explicitly grants. No data belonging to
-other YouTube users, viewers, or commenters is collected, stored, or
-processed by this tool beyond what the YouTube API itself returns for
-normal channel-management actions (e.g. the text of a comment this tool
-posts).</p>
+<h2>OAuth scope requested</h2>
+<p>This application requests a single scope:</p>
+<ul>
+  <li><code>https://www.googleapis.com/auth/youtube.force-ssl</code> —
+  required to post comments and update video metadata on the authorizing
+  channel's own videos. No broader scope (e.g. account deletion, channel
+  transfer, monetization settings) is requested or used.</li>
+</ul>
+
+<h2>What data this application accesses, and how it's stored</h2>
+<p>Only data belonging to the authorizing YouTube channel itself: that
+channel's own video details, comment threads, and channel information as
+returned by the YouTube Data API for the actions above. This application
+does not collect, view, or process data belonging to any other YouTube
+user, viewer, or commenter beyond what the API itself returns as part of a
+normal channel-management call (for example, the text of a comment this
+application posts on the owner's behalf).</p>
+<p>OAuth credentials (client ID/secret and refresh token) are stored only
+in a local, non-public configuration file on the channel owner's own
+machine. They are never transmitted anywhere except directly to Google's
+own API endpoints over HTTPS, and are never logged, backed up to a third
+party, or shared. The owner can revoke access at any time at
+<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>,
+which immediately invalidates the stored refresh token.</p>
+
+<h2>Data retention</h2>
+<p>Credentials are retained locally only for as long as this application
+remains in active use by the channel owner. No user data obtained through
+the API is retained after the single action (posting a comment, updating
+metadata) that required it completes — this application does not maintain
+a database or long-term store of YouTube data.</p>
 
 <h2>Data sharing</h2>
-<p>No data is sold, shared, or transmitted to any third party. Credentials
-are stored locally and used solely to call Google's YouTube Data API on
-the owner's behalf.</p>
+<p>No data obtained through this application or the YouTube Data API is
+sold, rented, or shared with any third party for any purpose, including
+advertising.</p>
+
+<h2>Limited Use disclosure</h2>
+<p>Let's Relax YouTube Automation's use and transfer of information
+received from Google APIs to any other app will adhere to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+including the Limited Use requirements.</p>
 
 <h2>Contact</h2>
-<p>Questions about this policy can be directed via the
-<a href="https://www.youtube.com/@Lets-Relax/about">Let's Relax channel's About page</a>.</p>
+<p>Questions about this policy can be directed to
+<a href="mailto:salihuts89@gmail.com">salihuts89@gmail.com</a>.</p>
 </body>
 </html>
